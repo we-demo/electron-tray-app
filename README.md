@@ -1,3 +1,5 @@
+# electron-tray-app
+
 ```sh
 # only 'yarn' works
 yarn
@@ -8,6 +10,8 @@ codesign --deep --force --verbose --sign - node_modules/electron/dist/Electron.a
 
 yarn start
 ```
+
+Credits: https://github.com/ollama/ollama/blob/main/macapp
 
 ---
 
