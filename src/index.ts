@@ -64,9 +64,9 @@ function firstRunWindow() {
     height: 500,
     frame: false,
     fullscreenable: false,
-    resizable: false,
+    // resizable: false,
     movable: true,
-    show: false,
+    // show: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -252,7 +252,7 @@ function init() {
     }
   }
 
-  server()
+  // server()
 
   if (store.get('first-time-run') && installed()) {
     if (process.platform === 'darwin') {
