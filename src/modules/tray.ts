@@ -1,7 +1,8 @@
 import { app, autoUpdater, Tray, Menu, MenuItemConstructorOptions, nativeTheme } from 'electron'
 import * as path from 'path'
-import { appName } from '../constants'
+// import { appName } from '../constants'
 import { getUpdateAvailable } from '../auto-updater'
+import { getDiskSpace } from '../plugins/disk'
 
 const assetPath = app.isPackaged ? process.resourcesPath : path.join(__dirname, '..', '..', 'assets')
 
@@ -26,6 +27,7 @@ function updateTrayIcon() {
 
 export function updateTray() {
   const updateAvailable = getUpdateAvailable()
+  const diskSpace = getDiskSpace()
 
   const updateItems: MenuItemConstructorOptions[] = [
     { label: 'An update is available', enabled: false },
@@ -46,7 +48,8 @@ export function updateTray() {
   }
 
   tray.setToolTip(updateAvailable ? 'An update is available' : '')
-  tray.setTitle(' ' + appName)
+  // tray.setTitle(' ' + appName)
+  tray.setTitle(diskSpace !== '' ? diskSpace : '...') // not ready
 
   tray.setContextMenu(menu)
   tray.setImage(trayIconPath())
