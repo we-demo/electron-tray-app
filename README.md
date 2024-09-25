@@ -10,8 +10,8 @@ codesign --deep --force --verbose --sign - node_modules/electron/dist/Electron.a
 yarn start
 
 yarn package
-codesign --deep --force --verbose --sign - out/Ollama-darwin-universal/Ollama.app
-open out/Ollama-darwin-universal/Ollama.app
+codesign --deep --force --verbose --sign - out/Tray-darwin-universal/Tray.app
+open out/Tray-darwin-universal/Tray.app
 ```
 
 Credits: https://github.com/ollama/ollama/blob/main/macapp

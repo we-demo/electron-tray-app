@@ -10,7 +10,8 @@ import * as fs from 'fs'
 import { mainConfig } from './webpack.main.config'
 import { rendererConfig } from './webpack.renderer.config'
 
-const packageJson = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json'), 'utf8'))
+// const packageJson = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json'), 'utf8'))
+import packageJson from './package.json'
 
 const config: ForgeConfig = {
   packagerConfig: {
@@ -42,7 +43,7 @@ const config: ForgeConfig = {
         }
       : {}),
     osxUniversal: {
-      x64ArchFiles: '**/ollama',
+      // x64ArchFiles: '**/ollama',
     },
   },
   rebuildConfig: {},
@@ -57,9 +58,23 @@ const config: ForgeConfig = {
     new WebpackPlugin({
       mainConfig,
       devContentSecurityPolicy: `default-src * 'unsafe-eval' 'unsafe-inline'; img-src data: 'self'`,
+      // renderer: {
+      //   config: rendererConfig,
+      //   nodeIntegration: true,
+      //   entryPoints: [
+      //     {
+      //       html: './src/index.html',
+      //       js: './src/renderer.tsx',
+      //       name: 'main_window',
+      //       preload: {
+      //         js: './src/preload.ts',
+      //       },
+      //     },
+      //   ],
+      // },
       renderer: {
-        config: rendererConfig,
-        nodeIntegration: true,
+        config: {},
+        nodeIntegration: false,
         entryPoints: [
           {
             html: './src/index.html',

@@ -1,7 +1,3 @@
-import App from './app'
-import './app.css'
-import { createRoot } from 'react-dom/client'
+// See: ./legacy_ollama/renderer.ts
 
-const container = document.getElementById('app')
-const root = createRoot(container)
-root.render(<App />)
+// noop
